@@ -13,7 +13,8 @@ import jakarta.validation.constraints.*;
 
 /**
  * DTO que representa los datos de un estudiante para transferencia entre capas.
- * Incluye validaciones para los campos principales y datos de inscripción, estado y fechas.
+ * Incluye validaciones para los campos principales y datos de inscripción,
+ * estado y fechas.
  *
  * @author Universidad
  */
@@ -25,15 +26,14 @@ public class EstudianteDTO implements Serializable {
     /** Identificador único del estudiante */
     private Long id;
     /** Nombre del estudiante */
-    @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
     /** Apellido del estudiante */
     @NotBlank(message = "El apellido es obligatorio")
     @Size(min = 3, max = 50, message = "El apellido debe tener entre 3 y 50 caracteres")
     private String apellido;
     /** Email del estudiante */
-    @NotBlank( message = "El email no puede estar vacío")
-    @Email( message = "El email no es válido")
+    @NotBlank(message = "El email no puede estar vacío")
+    @Email(message = "El email no es válido")
     @Size(max = 100, message = "El email no puede tener más de 100 caracteres")
     private String email;
     /** Fecha de nacimiento del estudiante */
@@ -73,5 +73,5 @@ public class EstudianteDTO implements Serializable {
     @Size(min = 3, max = 100, message = "El motivo de baja debe tener entre 3 y 100 caracteres")
     @Pattern(regexp = "^(renuncia|desercion|traslado)$", message = "El motivo de baja debe ser 'renuncia', 'desercion' o 'traslado'")
     private String motivoBaja;
-    
+
 }
